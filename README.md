@@ -5,5 +5,5 @@
 #### Skills: C++, Union-Find data structures, graph theory.
 
 <p align="center">
-  <img src="https://github.com/OjasviChauhan/Percolation/blob/main/Utility/PercolationGIF.gif">
+  <img width="400" height="400" src="https://github.com/OjasviChauhan/Percolation/blob/main/Utility/PercolationGIF.gif">
 </p>
