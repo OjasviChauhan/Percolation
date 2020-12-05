@@ -19,13 +19,19 @@ class Percolation{
             n = N*N;        // Total Cells
             this->N = N;    // Number of rows and columns
 
-            open = new bool[n+2];
+
+            // this array will store whether any cell is open or close
+            open = new bool[n+2];     
             for(int i=0;i<n+2;i++){
-                open[i]=false;
+                // initially all cells are closed
+                open[i]=false;        
             }
+
+            // but source and sink will remain open
             open[0] = true;
             open[n+1] = true;
 
+            // initialization for union & find 
             parent = new int[n+2];
             rank = new int[n+2];
             for(int i=0;i<n+2;i++){
@@ -75,9 +81,12 @@ class Percolation{
             // cout<<endl;
         }
 
-        void validate(int m) {
-            if (m < 0 || m >= n * n)
-                throw "Incorrect location supplied";
+        bool validate(int m) {
+            if (m < 0 || m > n){
+                cout<< "Incorrect location supplied!\nPlease Re-enter the cell\n";
+                return false;
+            }
+            return true;
         }
 
         int getIndex(int i,int j){
@@ -86,7 +95,8 @@ class Percolation{
 
         void openSite(int row,int col){
             int index = getIndex(row,col);
-            validate(index);
+            if(!validate(index))
+                return;
             
             //cout<<"Index ID: "<<index<<endl;
 
@@ -123,6 +133,7 @@ class Percolation{
             }
         }
         
+        // check the connection
         bool percolates(int source,int sink){
             if(findSet(source,parent) == findSet(sink,parent)){
                 return true;
@@ -132,6 +143,7 @@ class Percolation{
 };
 
 int main(){
+
     int N;               // size of matrix and how many edges or connected sites.
     cout<<"Enter the size of matrix: ";
     cin>>N;
@@ -156,7 +168,7 @@ int main(){
         
         if(count > N*N) break;  // Checking overflow condition for while loop
         
-        int u,v;
+        int u,v;    // here u and v are row and columns
         cin>>u>>v;
         p.openSite(u,v);
         
@@ -175,3 +187,5 @@ int main(){
     
 return 0;
 }
+
+// total time complexity O(row*col)
