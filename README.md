@@ -1,6 +1,6 @@
 # Percolation
 
-#### A Minor-I project, based on Percolation theory in which I've implemented a Union-Find algorithm to check for the percolation of water through any porous material.
+#### A Minor-I project, based on Percolation theory in which I've implemented a Union-Find algorithm to check for the percolation of water through any porous material and did a Monte Carlo Simulation to calculate the Probability Threshold of the system.
 
 #### Skills: C++, Union-Find data structures, graph theory.
 
